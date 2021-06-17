@@ -1,0 +1,21 @@
+<section>
+  <form class="form__event" nz-form [formGroup]="formValidate">
+    <div class="form__event__item">
+      <p class="form__event__label">Name</p>
+      <input nz-input type="text" nzSize="large" placeholder="Event Name" formControlName="name" />
+    </div>
+    <div class="form__event__item">
+      <p class="form__event__label">Select Date</p>
+      <nz-date-picker nzInline formControlName="date"></nz-date-picker>
+    </div>
+
+    <div class="form__event__item">
+      <p class="form__event__label">Select Time</p>
+      <nz-time-picker nzSize="large" formControlName="time"></nz-time-picker>
+    </div>
+
+    <div class="form__event__item">
+      <button nz-button nzSize="large" nzType="primary" nzBlock [disabled]="!formValidate.valid" (click)="onCreate()">Add +</button>
+    </div>
+  </form>
+</section>

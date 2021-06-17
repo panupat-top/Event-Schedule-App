@@ -1,0 +1,18 @@
+section {
+  display: flex;
+  flex-flow: column wrap;
+
+  form.form__event {
+    .form__event__item {
+      margin-bottom: 30px;
+
+      p.form__event__label {
+        font-weight: 700;
+      }
+
+      nz-time-picker {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .col {
+    margin: 15px;
+    padding: 20px 45px;
+    background: #fff;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,8 @@
+<section class="container">
+  <div class="col">
+    <app-home-add-event (create)="onCreate($event)"></app-home-add-event>
+  </div>
+  <div class="col">
+    <app-home-calendar [events]="events" (search)="onSearch($event)"></app-home-calendar>
+  </div>
+</section>

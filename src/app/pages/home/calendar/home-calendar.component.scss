@@ -1,0 +1,33 @@
+section {
+  display: flex;
+  flex-flow: column wrap;
+
+  form.form__event {
+    .form__event__item {
+      margin-bottom: 30px;
+
+      p.form__event__label {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+nz-tag {
+  margin: 4px 0;
+  padding: 6px;
+  width: 100%;
+
+  p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 2px;
+
+    &.sub {
+      font-size: 0.7rem;
+    }
+  }
+}

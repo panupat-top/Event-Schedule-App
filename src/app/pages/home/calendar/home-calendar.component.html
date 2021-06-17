@@ -1,0 +1,32 @@
+<section>
+  <form class="form__event" nz-form [formGroup]="formValidate">
+    <div class="form__event__item">
+      <p class="form__event__label">Search</p>
+      <nz-input-group nzSize="large" [nzAddOnAfter]="suffixIconButton">
+        <input nz-input type="text" placeholder="Search Event Name" formControlName="search" (keyup)="onSearch()" />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+  </form>
+
+  <nz-calendar [(ngModel)]="currentDate" (nzSelectChange)="selectCalendarDate($event)">
+    <ng-container *nzDateCell="let date">
+      <ng-container [ngSwitch]="formatDate(date)">
+        <ng-container *ngFor="let event of events">
+          <ng-container *ngSwitchCase="event.date">
+            <nz-tag [nzColor]="colors">
+              <p>{{ event.name }}</p>
+              <p class="sub"><i nz-icon nzType="clock-circle" nzTheme="outline"></i> {{ event.time }}</p>
+            </nz-tag>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *nzDateCell="let month">
+      {{ month }}
+    </ng-container>
+  </nz-calendar>
+</section>
