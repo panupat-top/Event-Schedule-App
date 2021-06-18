@@ -10,6 +10,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
     NzModalModule,
     NzTagModule,
     NzListModule,
+    NzTimelineModule,
   ],
   imports: [CommonModule],
 })

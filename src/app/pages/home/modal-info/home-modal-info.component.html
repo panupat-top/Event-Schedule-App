@@ -1,10 +1,4 @@
-<!-- <p *ngFor="let content of contents">{{ content.name }}</p> -->
-
-<!-- <ul>
-  <li *ngFor="let content of contents">{{ content.name }}</li>
-</ul> -->
-
-<nz-list nzItemLayout="horizontal">
+<!-- <nz-list nzItemLayout="horizontal">
   <nz-list-item *ngFor="let content of contents">
     <nz-list-item-meta nzAvatar="assets/images/mark.png" [nzDescription]="content.time">
       <nz-list-item-meta-title>
@@ -12,4 +6,11 @@
       </nz-list-item-meta-title>
     </nz-list-item-meta>
   </nz-list-item>
-</nz-list>
+</nz-list> -->
+
+<nz-timeline>
+  <nz-timeline-item *ngFor="let content of contents" [nzDot]="dotTemplate"> {{ content.time }} - {{ content.name }} </nz-timeline-item>
+</nz-timeline>
+<ng-template #dotTemplate>
+  <i nz-icon nzType="clock-circle-o" style="font-size: 16px"></i>
+</ng-template>

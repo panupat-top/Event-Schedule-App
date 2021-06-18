@@ -12,12 +12,12 @@ export class HomeAddEventComponent implements OnInit {
   @Output() create: EventEmitter<any> = new EventEmitter();
 
   nowDate = moment().format();
-  nowTime = moment('00:00:00', 'HH:mm:ss').format();
+  // nowTime = moment('00:00:00', 'HH:mm:ss').format();
 
   formValidate: FormGroup = this.formBuild.group({
     name: [null, Validators.compose([Validators.required])],
     date: [this.nowDate, Validators.compose([Validators.required])],
-    time: [this.nowTime, Validators.compose([Validators.required])],
+    time: [this.nowDate, Validators.compose([Validators.required])],
   });
 
   constructor(private formBuild: FormBuilder) {}
