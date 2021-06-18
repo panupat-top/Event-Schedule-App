@@ -4,7 +4,7 @@
 
 ## โปรเจคนี้พัฒนาด้วย [Angular 11+](https://github.com/angular/angular-cli)
 
-## [View Demo](https://panupat-top.github.io/Event-Schedule-App/dist/schedule-app/)
+## [View Demo](https://panupat-top.github.io/Event-Schedule-App/deploy/public)
 
 ---
 
