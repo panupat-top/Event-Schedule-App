@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   async onCreate(param: EventsSchedule): Promise<void> {
     this.loading.show();
 
-    const { name, date, time } = param;
-    this.events.push({ name, date, time });
+    this.events.push({ ...param });
+    this.events = this.events.sort((a: any, b: any) => (a.time < b.time ? -1 : a.time > b.time ? 1 : 0));
     this.eventsInit = this.events;
 
     this.loading.hide();

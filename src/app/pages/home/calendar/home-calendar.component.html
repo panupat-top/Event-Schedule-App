@@ -1,4 +1,5 @@
 <section>
+  <!-- :: ------ Search ------ :: -->
   <form class="form__event" nz-form [formGroup]="formValidate">
     <div class="form__event__item">
       <p class="form__event__label">Search</p>
@@ -11,6 +12,7 @@
     </div>
   </form>
 
+  <!-- :: ------ Calendar ------ :: -->
   <nz-calendar [(ngModel)]="currentDate" (nzSelectChange)="selectCalendarDate($event)">
     <ng-container *nzDateCell="let date">
       <ng-container [ngSwitch]="formatDate(date)">

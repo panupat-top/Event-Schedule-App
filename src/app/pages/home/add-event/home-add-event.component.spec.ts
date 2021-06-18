@@ -8,9 +8,8 @@ describe('HomeAddEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeAddEventComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeAddEventComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -48,11 +48,10 @@ export class HomeCalendarComponent implements OnInit {
 
   onSearch(): void {
     const { search } = this.formValidate.value;
-
     this.search.emit(search);
   }
 
-  formatDate(date: any): string {
-    return moment(date).format('YYYY-MM-DD');
+  formatDate(date: any, format: string = 'YYYY-MM-DD'): string {
+    return moment(date).format(format);
   }
 }
