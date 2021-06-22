@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ApiService } from './../../services/api/api.service';
 import { EventsSchedule } from './home.model';
 import { LoadingService } from './../../services/loading/loading.service';
 
@@ -12,18 +13,51 @@ export class HomeComponent implements OnInit {
   events: EventsSchedule[] = [];
   eventsInit: EventsSchedule[] = [];
 
-  constructor(private loading: LoadingService) {}
+  constructor(private loading: LoadingService, private api: ApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loading.show();
+    this.listsEvent();
+  }
+
+  async listsEvent(): Promise<void> {
+    try {
+      const lists = await this.api.listsEvent();
+
+      this.events = lists || [];
+      this.events = this.events.sort((a: any, b: any) => (a.time < b.time ? -1 : a.time > b.time ? 1 : 0));
+      this.eventsInit = this.events;
+
+      this.loading.hide();
+    } catch (error) {
+      this.events = [];
+      this.loading.hide();
+    }
+  }
 
   async onCreate(param: EventsSchedule): Promise<void> {
-    this.loading.show();
+    try {
+      this.loading.show();
 
-    this.events.push({ ...param });
-    this.events = this.events.sort((a: any, b: any) => (a.time < b.time ? -1 : a.time > b.time ? 1 : 0));
-    this.eventsInit = this.events;
+      const { name, date, time } = param;
+      await this.api.addEvent({ name, date, time });
+      this.listsEvent();
+    } catch (error) {
+      console.log(error);
+      this.loading.hide();
+    }
+  }
 
-    this.loading.hide();
+  async onRemove(id: any): Promise<void> {
+    try {
+      this.loading.show();
+
+      await this.api.removeEvent(id);
+      this.listsEvent();
+    } catch (error) {
+      console.log(error);
+      this.loading.hide();
+    }
   }
 
   onSearch(search: string | null | undefined): void {

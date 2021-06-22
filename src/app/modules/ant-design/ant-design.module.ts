@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
@@ -26,6 +27,7 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
     NzTagModule,
     NzListModule,
     NzTimelineModule,
+    NzBadgeModule
   ],
   imports: [CommonModule],
 })

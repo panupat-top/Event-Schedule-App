@@ -15,6 +15,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 export class HomeCalendarComponent implements OnInit {
   @Input() events: EventsSchedule[] = [];
   @Output() search: EventEmitter<any> = new EventEmitter();
+  @Output() remove: EventEmitter<any> = new EventEmitter();
 
   colors = '#375ca9';
   currentDate = moment().format();
@@ -38,11 +39,18 @@ export class HomeCalendarComponent implements OnInit {
   }
 
   info(title: string, contents: EventsSchedule[]): void {
-    this.modal.create({
+    const modal = this.modal.create({
       nzTitle: title,
       nzContent: HomeModalInfoComponent,
       nzComponentParams: { contents },
-      nzOnOk: () => console.log('show info!'),
+      nzOnOk: () => console.log('ok!'),
+    });
+
+    modal.afterClose.subscribe(result => {
+      const id = result?.id || null;
+      if (id) {
+        this.remove.emit(id);
+      }
     });
   }
 

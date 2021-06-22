@@ -1,5 +1,12 @@
 <nz-timeline>
-  <nz-timeline-item *ngFor="let content of contents" [nzDot]="dotTemplate"> {{ content.time }} - {{ content.name }} </nz-timeline-item>
+  <nz-timeline-item *ngFor="let content of contents" [nzDot]="dotTemplate">
+    <div class="item">
+      <p>{{ content.time }} - {{ content.name }}</p>
+      <p class="delete" (click)="onRemove(content)">
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
+      </p>
+    </div>
+  </nz-timeline-item>
 </nz-timeline>
 <ng-template #dotTemplate>
   <i nz-icon nzType="clock-circle-o" style="font-size: 16px"></i>

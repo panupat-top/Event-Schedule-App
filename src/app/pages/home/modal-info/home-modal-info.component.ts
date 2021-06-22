@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { EventsSchedule } from './../home.model';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-home-modal-info',
@@ -10,7 +11,12 @@ import { EventsSchedule } from './../home.model';
 export class HomeModalInfoComponent implements OnInit {
   @Input() contents: EventsSchedule[] = [];
 
-  constructor() {}
+  constructor(private modal: NzModalRef) {}
 
   ngOnInit(): void {}
+
+  onRemove(data: any): void {
+    const { id } = data;
+    this.modal.destroy({ id });
+  }
 }

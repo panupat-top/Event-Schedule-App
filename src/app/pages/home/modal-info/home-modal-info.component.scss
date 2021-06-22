@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  flex-flow: row nowrap;
+
+  p {
+    flex-basis: 90%;
+
+    &.delete {
+      color: red;
+      flex-basis: 10%;
+      cursor: pointer;
+    }
+  }
+}
